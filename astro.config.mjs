@@ -10,5 +10,16 @@ export default defineConfig({
   compressHTML: true,
   integrations: [mdx(), tailwind({
     applyBaseStyles: false,
-  }), compress()],
-})
+  }), compress(), NetlifyCMS({
+    config: {
+      backend: {
+        name: 'git-gateway',
+        branch: 'main',
+      },
+      collections: [
+        //content collections
+      ],
+    },
+  }),
+],
+});
